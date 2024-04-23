@@ -24,7 +24,7 @@ def order_robots_from_RobotSpareBin():
         slowmo=500,
     )
     log_in()
-    download_excel_file()
+    get_orders()
     open_the_RobotOrders_website()
     fill_form_with_excel_data()
     zipFolder("output/receipts","output/receipts")
@@ -34,7 +34,7 @@ def order_robots_from_RobotSpareBin():
 
 secrets = vault.get_secret('MariasVault')
 
-def download_excel_file():
+def get_orders():
     """Downloads the orders.csv file given URL"""
     http = HTTP()
     http.download(url="https://robotsparebinindustries.com/orders.csv", overwrite=True)
@@ -119,5 +119,6 @@ def deleteFolder(folderPath):
 
 def log_out():
     """Presses the 'Log out' button"""
-    page = browser.page()  
+    page = browser.page()
+    page.click("text=OK")
     page.click("text=Log out")
