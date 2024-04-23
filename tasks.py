@@ -12,8 +12,14 @@ import shutil
 import os
 
 @task
-def robot_orders_python():
-    """Insert the robot orders, export it as a PDF and zip files"""
+def order_robots_from_RobotSpareBin():
+    """
+    Orders robots from RobotSpareBin Industries Inc.
+    Saves the order HTML receipt as a PDF file.
+    Saves the screenshot of the ordered robot.
+    Embeds the screenshot of the robot to the PDF receipt.
+    Creates ZIP archive of the receipts and the images.
+    """
     browser.configure(
         slowmo=500,
     )
